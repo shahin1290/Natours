@@ -25,9 +25,9 @@ exports.getTourStats = async (req, res) => {
           maxPrice: { $max: '$price' },
         },
       },
-      {
+      /* {
         $match: { _id: { $ne: 'DIFFICULT' } },
-      },
+      }, */
     ]);
 
     res.status(200).json({
@@ -168,7 +168,7 @@ exports.updateTour = async (req, res) => {
   } catch (err) {
     res.status(400).json({
       status: 'fail',
-      message: 'cannot update',
+      message: err,
     });
   }
 };
